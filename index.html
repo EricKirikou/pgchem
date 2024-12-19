@@ -1,282 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pharmageorge Chemist Ltd || Pharmaceuticals</title>
-    <!-- TailwindCSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome 6.7.2 CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
-    <style>
-        /* Custom gradient animation for Book Appointment button */
-        .gradient-hover {
-            background-image: linear-gradient(45deg, #ff6f61, #f28f89, #6a11cb, #2575fc);
-            background-size: 400% 400%;
-            animation: gradientAnimation 3s ease infinite;
-        }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pharmageorge Chemist Ltd || Pharmaceuticals</title>
+	<!-- TailwindCSS CDN -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<!-- FontAwesome 6.7.2 CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+	<style>
+		/* Custom gradient animation for Book Appointment button */
+		.gradient-hover {
+			background-image: linear-gradient(45deg, #ff6f61, #f28f89, #6a11cb, #2575fc);
+			background-size: 400% 400%;
+			animation: gradientAnimation 3s ease infinite;
+		}
 
-        .gradient-hover:hover {
-            background-image: linear-gradient(45deg, #ff6f61, #f28f89, #6a11cb, #2575fc);
-            background-size: 400% 400%;
-            animation: gradientAnimation 3s ease infinite;
-        }
+		.gradient-hover:hover {
+			background-image: linear-gradient(45deg, #ff6f61, #f28f89, #6a11cb, #2575fc);
+			background-size: 400% 400%;
+			animation: gradientAnimation 3s ease infinite;
+		}
 
-        @keyframes gradientAnimation {
-            0% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            100% {background-position: 0% 50%;}
-        }
+		@keyframes gradientAnimation {
+			0% {
+				background-position: 0% 50%;
+			}
 
-        /* Custom styles for the carousel */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
+			50% {
+				background-position: 100% 50%;
+			}
 
-        .carousel-images {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
+			100% {
+				background-position: 0% 50%;
+			}
+		}
 
-        .carousel-images img {
-            width: 100%;
-            height: auto;
-        }
+		/* Categories Section */
+		.category-item {
+			background-color: #f3f4f6;
+			padding: 12px 20px;
+			border-radius: 8px;
+			text-align: center;
+			transition: background-color 0.3s ease, transform 0.3s ease;
+		}
 
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
-            font-size: 24px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
+		.category-item:hover {
+			background-color: #4ade80;
+			transform: scale(1.05);
+		}
 
-        .prev {
-            left: 10px;
-        }
+		.category-item i {
+			font-size: 24px;
+			margin-bottom: 8px;
+		}
 
-        .next {
-            right: 10px;
-        }
+		/* Custom styles for the mobile menu */
+		#mobile-menu {
+			display: none;
+			transition: max-height 0.3s ease-in-out;
+		}
 
-        /* Categories Section */
-        .category-item {
-            background-color: #f3f4f6;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-align: center;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .category-item:hover {
-            background-color: #4ade80;
-            transform: scale(1.05);
-        }
-
-        .category-item i {
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
-
-    </style>
+		#mobile-menu.open {
+			display: block;
+		}
+	</style>
 </head>
+
 <body class="bg-gray-100">
-    
-    <!-- First Navbar (Contact Info) -->
-    <nav class="w-full min-h-[16vh] sm:min-h-[18vh] lg:min-h-[12vh] xl:min-h-[10vh] bg-teal-500 sm:bg-teal-600 flex flex-col sm:flex-row items-center justify-between px-4 py-2">
-        <!-- Left side: Contact info (Centered on small screens) -->
-        <div class="flex flex-col items-center space-y-2 text-white sm:flex-row sm:space-x-4 sm:space-y-0 sm:items-center sm:justify-start">
-            <div class="flex items-center space-x-2">
-                <a href="tel:+1234567890" class="flex items-center space-x-2">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>+1 (234) 567-890</span>
-                </a>
-            </div>
-            <div class="flex items-center space-x-2">
-                <a href="mailto:contact@website.com" class="flex items-center space-x-2">
-                    <i class="fas fa-envelope"></i>
-                    <span>contact@website.com</span>
-                </a>
-            </div>
-        </div>
 
-        <!-- Horizontal line separating top and bottom sections on small screens -->
-        <div class="w-full border-t-2 border-white my-2 sm:hidden"></div>
+	<!-- First Navbar (Contact Info) -->
+	<nav
+		class="w-full min-h-[16vh] sm:min-h-[18vh] lg:min-h-[12vh] xl:min-h-[10vh] bg-teal-500 sm:bg-teal-600 flex flex-col sm:flex-row items-center justify-between px-4 py-2">
+		<!-- Left side: Contact info (Centered on small screens) -->
+		<div
+			class="flex flex-col items-center space-y-2 text-white sm:flex-row sm:space-x-4 sm:space-y-0 sm:items-center sm:justify-start">
+			<div class="flex items-center space-x-2">
+				<a href="tel:+1234567890" class="flex items-center space-x-2">
+					<i class="fas fa-phone-alt"></i>
+					<span>+1 (234) 567-890</span>
+				</a>
+			</div>
+			<div class="flex items-center space-x-2">
+				<a href="mailto:contact@website.com" class="flex items-center space-x-2">
+					<i class="fas fa-envelope"></i>
+					<span>contact@website.com</span>
+				</a>
+			</div>
+		</div>
 
-        <!-- Right side: Social media and location info (Centered at the bottom for small screens) -->
-        <div class="flex flex-col items-center space-y-2 text-white sm:flex-row sm:space-x-4 sm:space-y-0 sm:items-center sm:justify-end">
-            <div class="flex space-x-4">
-                <a href="#" class="hover:text-teal-300">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="hover:text-teal-300">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="hover:text-teal-300">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="hover:text-teal-300">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Our Locations</span>
-            </div>
-        </div>
-    </nav>
+		<!-- Horizontal line separating top and bottom sections on small screens -->
+		<div class="w-full border-t-2 border-white my-2 sm:hidden"></div>
 
-    <!-- Second Navbar (Logo, Hamburger, Wishlist, Cart, Search, Appointment) -->
-    <nav class="w-full bg-white shadow-lg py-6 px-4">
-        <!-- Mobile Layout -->
-        <div class="sm:hidden flex justify-between items-center w-full">
-            <!-- Left Grid: Menu (Hamburger Icon) -->
-            <div class="flex items-center">
-                <button class="text-teal-600" id="hamburger-button">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
+		<!-- Right side: Social media and location info (Centered at the bottom for small screens) -->
+		<div
+			class="flex flex-col items-center space-y-2 text-white sm:flex-row sm:space-x-4 sm:space-y-0 sm:items-center sm:justify-end">
+			<div class="flex space-x-4">
+				<a href="#" class="hover:text-teal-300">
+					<i class="fab fa-facebook-f"></i>
+				</a>
+				<a href="#" class="hover:text-teal-300">
+					<i class="fab fa-twitter"></i>
+				</a>
+				<a href="#" class="hover:text-teal-300">
+					<i class="fab fa-instagram"></i>
+				</a>
+				<a href="#" class="hover:text-teal-300">
+					<i class="fab fa-youtube"></i>
+				</a>
+			</div>
+			<div class="flex items-center space-x-2">
+				<i class="fas fa-map-marker-alt"></i>
+				<span>Our Locations</span>
+			</div>
+		</div>
+	</nav>
 
-            <!-- Right Grid: Logo (Increased size) -->
-            <div class="flex items-center justify-end w-1/3">
-                <img src="images/logo.png" alt="Logo" class="h-16">
-            </div>
-        </div>
+	<!-- Second Navbar (Logo, Hamburger, Wishlist, Cart, Search, Appointment) -->
+	<nav class="w-full bg-white shadow-lg py-6 px-4">
+		<!-- Mobile Layout -->
+		<div class="sm:hidden flex justify-between items-center w-full">
+			<!-- Left Grid: Menu (Hamburger Icon) -->
+			<div class="flex items-center">
+				<button class="text-teal-600" id="hamburger-button">
+					<i class="fas fa-bars text-xl"></i>
+				</button>
+			</div>
 
-        <!-- Mobile Row for Wishlist, Cart, Search, Book Appointment -->
-        <div class="sm:hidden flex justify-center items-center mt-4 space-x-6">
-            <!-- Wishlist Icon and Cart Icon with minimal spacing -->
-            <div class="flex items-center space-x-4">
-                <a href="#" class="text-teal-600 hover:text-teal-700">
-                    <i class="fas fa-heart"></i>
-                </a>
-                <div class="relative">
-                    <a href="#" class="text-teal-600 hover:text-teal-700">
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-                    <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">0</span>
-                </div>
-            </div>
+			<!-- Right Grid: Logo (Increased size) -->
+			<div class="flex items-center justify-end w-1/3">
+				<img src="images/logo.png" alt="Logo" class="h-16">
+			</div>
+		</div>
 
-            <!-- Search Bar with Search Button -->
-            <div class="flex items-center space-x-2">
-                <input type="text" placeholder="Search products..." class="px-4 py-2 rounded-lg w-32">
-                <button class="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700">Search</button>
-            </div>
-        </div>
+		<!-- Mobile Row for Wishlist, Cart, Search, Book Appointment -->
+		<div class="sm:hidden flex justify-center items-center mt-4 space-x-6">
+			<!-- Wishlist Icon and Cart Icon with minimal spacing -->
+			<div class="flex items-center space-x-4">
+				<a href="#" class="text-teal-600 hover:text-teal-700">
+					<i class="fas fa-heart"></i>
+				</a>
+				<div class="relative">
+					<a href="#" class="text-teal-600 hover:text-teal-700">
+						<i class="fas fa-shopping-cart"></i>
+					</a>
+					<span id="cart-count"
+						class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">0</span>
+				</div>
+			</div>
 
-        <!-- Book Appointment Button -->
-        <div class="sm:hidden mt-4 flex justify-center">
-            <button id="book-appointment" class="px-6 py-2 text-white font-bold rounded-lg gradient-hover">
-                Book Appointment
-            </button>
-        </div>
+			<!-- Search Bar with Search Button -->
+			<div class="flex items-center space-x-2">
+				<input type="text" placeholder="Search products..." class="px-4 py-2 rounded-lg w-32">
+				<button class="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700">Search</button>
+			</div>
+		</div>
 
-        <!-- Desktop Layout -->
-        <div class="hidden sm:flex justify-between items-center w-full">
-            <!-- Left Grid: Logo (Increased size) -->
-            <div class="flex items-center justify-start w-1/3">
-                <img src="images/logo.png" alt="Logo" class="h-16">
-            </div>
+		<!-- Book Appointment Button -->
+		<div class="sm:hidden mt-4 flex justify-center">
+			<button id="book-appointment" class="px-6 py-2 text-white font-bold rounded-lg gradient-hover">
+				Book Appointment
+			</button>
+		</div>
 
-            <!-- Middle Grid: Search + Menu -->
-            <div class="flex flex-col sm:flex-row justify-center items-center w-1/3 space-y-4 sm:space-y-0 sm:space-x-4 hidden sm:flex md:flex" id="menu-items">
-                <!-- Top Grid: Search Space -->
-                <div class="flex items-center space-x-2">
-                    <input type="text" placeholder="Search products..." class="px-4 py-2 rounded-lg w-48">
-                    <button class="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700">Search</button>
-                </div>
-                
-                <!-- Bottom Grid: Menu Options -->
-                <div class="flex space-x-4">
-                    <a href="#" class="text-teal-600 hover:text-teal-700">Home</a>
-                    <a href="#" class="text-teal-600 hover:text-teal-700">Categories</a>
-                    <a href="#" class="text-teal-600 hover:text-teal-700">Contact</a>
-                </div>
-            </div>
+		<!-- Desktop Layout -->
+		<div class="hidden sm:flex justify-between items-center w-full">
+			<!-- Left Grid: Logo (Increased size) -->
+			<div class="flex items-center justify-start w-1/3">
+				<img src="images/logo.png" alt="Logo" class="h-16">
+			</div>
 
-            <!-- Right Grid: User Info, Wishlist, Cart, Appointment -->
-            <div class="flex flex-col sm:flex-row justify-end items-center w-1/3 space-y-4 sm:space-y-0 sm:space-x-4">
-                <!-- Top Grid: Sign In / Sign Up, Wishlist, Cart -->
-                <div class="flex items-center space-x-4">
-                    <a href="#" class="text-teal-600 hover:text-teal-700">Sign In</a>
-                    <a href="#" class="text-teal-600 hover:text-teal-700">Sign Up</a>
-                    <a href="#" class="text-teal-600 hover:text-teal-700">
-                        <i class="fas fa-heart"></i> <!-- Heart Icon for Wishlist -->
-                    </a>
-                    <div class="relative">
-                        <a href="#" class="text-teal-600 hover:text-teal-700">
-                            <i class="fas fa-shopping-cart"></i> <!-- Cart Icon -->
-                        </a>
-                        <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">0</span>
-                    </div>
-                </div>
+			<!-- Middle Grid: Search + Menu -->
+			<div class="flex flex-col sm:flex-row justify-center items-center w-1/3 space-y-4 sm:space-y-0 sm:space-x-4 hidden sm:flex md:flex"
+				id="menu-items">
+				<!-- Top Grid: Search Space -->
+				<div class="flex items-center space-x-2">
+					<input type="text" placeholder="Search products..." class="px-4 py-2 rounded-lg w-48">
+					<button class="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700">Search</button>
+				</div>
 
-                <!-- Bottom Grid: Book Appointment Button -->
-                <div>
-                    <button id="book-appointment" class="px-6 py-2 text-white font-bold rounded-lg gradient-hover">
-                        Book Appointment
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+				<!-- Bottom Grid: Menu Options -->
+				<div class="flex space-x-4">
+					<a href="#" class="text-teal-600 hover:text-teal-700">Home</a>
+					<a href="#" class="text-teal-600 hover:text-teal-700">Categories</a>
+					<a href="#" class="text-teal-600 hover:text-teal-700">Contact</a>
+				</div>
+			</div>
 
-    <!-- Mobile Menu (Hidden by default) -->
-    <div id="mobile-menu" class="sm:hidden hidden">
-        <div class="p-4 space-y-4">
-            <a href="#" class="block text-teal-600">Home</a>
-            <a href="#" class="block text-teal-600">Categories</a>
-            <a href="#" class="block text-teal-600">Contact</a>
-        </div>
+			<!-- Right Grid: User Info, Wishlist, Cart, Appointment -->
+			<div class="flex flex-col sm:flex-row justify-end items-center w-1/3 space-y-4 sm:space-y-0 sm:space-x-4">
+				<!-- Top Grid: Sign In / Sign Up, Wishlist, Cart -->
+				<div class="flex items-center space-x-4">
+					<a href="#" class="text-teal-600 hover:text-teal-700">Sign In</a>
+					<a href="#" class="text-teal-600 hover:text-teal-700">Sign Up</a>
+					<a href="#" class="text-teal-600 hover:text-teal-700">
+						<i class="fas fa-heart"></i> <!-- Heart Icon for Wishlist -->
+					</a>
+					<div class="relative">
+						<a href="#" class="text-teal-600 hover:text-teal-700">
+							<i class="fas fa-shopping-cart"></i> <!-- Cart Icon -->
+						</a>
+						<span id="cart-count"
+							class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">0</span>
+					</div>
+				</div>
+
+				<!-- Bottom Grid: Book Appointment Button -->
+				<div>
+					<button id="book-appointment" class="px-6 py-2 text-white font-bold rounded-lg gradient-hover">
+						Book Appointment
+					</button>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Mobile Menu (Hidden by default) -->
+<div id="mobile-menu" class="sm:hidden hidden fixed top-0 right-0 w-3/4 h-full bg-teal-500 text-white p-4">
+    <div class="space-y-4">
+        <a href="#" class="block text-white">Home</a>
+        <a href="#" class="block text-white">Categories</a>
+        <a href="#" class="block text-white">Contact</a>
+        <a href="#" id="sign-in-out" class="block text-white">Sign In</a> 
+        <a href="#" id="sign-in-out" class="block text-white">Sign Up</a> 
     </div>
+</div>
 
-    <!-- Categories Section -->
-    <section class="w-full bg-white py-6 shadow-md">
-        <div class="container mx-auto px-4">
-            <h2 class="text-center text-2xl font-semibold mb-4">Shop By Category</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
-                <div class="category-item">
-                    <i class="fas fa-pills"></i>
-                    <span class="text-sm">Pharmacy</span>
-                </div>
-                <div class="category-item">
-                    <i class="fas fa-tooth"></i>
-                    <span class="text-sm">Dental Care</span>
-                </div>
-                <div class="category-item">
-                    <i class="fas fa-heartbeat"></i>
-                    <span class="text-sm">Heart Health</span>
-                </div>
-                <div class="category-item">
-                    <i class="fas fa-syringe"></i>
-                    <span class="text-sm">Vaccines</span>
-                </div>
-                <div class="category-item">
-                    <i class="fas fa-laptop-medical"></i>
-                    <span class="text-sm">Medical Devices</span>
-                </div>
-                <div class="category-item">
-                    <i class="fas fa-baby"></i>
-                    <span class="text-sm">Baby Care</span>
-                </div>
-                <div class="category-item">
-                    <i class="fas fa-seedling"></i>
-                    <span class="text-sm">Herbal Medicine</span>
-                </div>
-                <div class="category-item">
-                    <i class="fas fa-capsules"></i>
-                    <span class="text-sm">Supplements</span>
-                </div>
-            </div>
-        </div>
-    </section>
+	<!-- Categories Section -->
+	<section class="w-full bg-white py-6 shadow-md">
+		<div class="container mx-auto px-4">
+			<h2 class="text-center text-2xl font-semibold mb-4">Shop By Category</h2>
+			<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+				<div class="category-item">
+					<i class="fas fa-pills"></i>
+					<span class="text-sm">Pharmacy</span>
+				</div>
+				<div class="category-item">
+					<i class="fas fa-tooth"></i>
+					<span class="text-sm">Dental Care</span>
+				</div>
+				<div class="category-item">
+					<i class="fas fa-heartbeat"></i>
+					<span class="text-sm">Heart Health</span>
+				</div>
+				<div class="category-item">
+					<i class="fas fa-syringe"></i>
+					<span class="text-sm">Vaccines</span>
+				</div>
+				<div class="category-item">
+					<i class="fa-solid fa-dumbbell"></i>
+					<span class="text-sm">Fitness and Wellness</span>
+				</div>
+				<div class="category-item">
+					<i class="fas fa-baby"></i>
+					<span class="text-sm">Baby Care</span>
+				</div>
+				<div class="category-item">
+					<i class="fas fa-seedling"></i>
+					<span class="text-sm">Herbal Medicine</span>
+				</div>
+				<div class="category-item">
+					<i class="fas fa-capsules"></i>
+					<span class="text-sm">Supplements</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Banner Section -->
+	<div class="banner max-w-full" id="banner">
+		<img src="images/hero_1.jpg" alt="Banner Image 1" class="banner-image" id="banner-image">
+	</div>
+
+	<!-- JavaScript to change the banner image -->
+	<script>
+		// JavaScript to handle the image fade effect
+		let currentIndex = 0;
+		const images = [
+			"images/hero_1.jpg",
+			"images/bg_2.jpg",
+			"images/banner3.jpg" // Add as many images as you want
+		];
+		const bannerImage = document.getElementById("banner-image");
+
+		function fadeOutAndIn() {
+			// Fade out the current image
+			bannerImage.classList.add("transition");
+
+			setTimeout(() => {
+				// Change the image source after the fade out
+				currentIndex = (currentIndex + 1) % images.length; // Cycle through the images
+				bannerImage.src = images[currentIndex];
+
+				// Fade in the new image
+				bannerImage.classList.remove("transition");
+			}, 9000); // Match the fade-out duration (2s)
+
+		}
+
+		// Start the fade effect every 5 seconds (after the fade-out completes)
+		setInterval(fadeOutAndIn, 2000); // Adjust interval time as needed
+
+
+		// Get elements
+		const hamburgerButton = document.getElementById('hamburger-button');
+		const mobileMenu = document.getElementById('mobile-menu');
+		const signInOutButton = document.getElementById('sign-in-out');
+
+		// Function to toggle the mobile menu visibility
+		hamburgerButton.addEventListener('click', function () {
+			mobileMenu.classList.toggle('open');
+		});
+
+		// Function to toggle between Sign In and Sign Out
+		signInOutButton.addEventListener('click', function () {
+			// Check current state and toggle text accordingly
+			if (signInOutButton.innerText = 'Sign In') {
+
+			} else {
+				signInOutButton.innerText = 'Sign Up'; // Change to Sign In when signed out
+				// Add your sign-out logic here (e.g., clear user info, redirect, etc.)
+			}
+		});
+
+	</script>
 
 </body>
+
 </html>
