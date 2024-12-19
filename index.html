@@ -65,6 +65,28 @@
 		#mobile-menu.open {
 			display: block;
 		}
+
+		/* Remove background, set icon color, and add hover effect */
+		button {
+			background: transparent;
+			/* No background */
+			border: none;
+			/* Remove border */
+			cursor: pointer;
+			/* Pointer cursor on hover */
+			transition: transform 0.2s ease-in-out;
+			/* Smooth transition for scaling */
+		}
+
+		button:hover {
+			transform: scale(1.25);
+			/* Pop out effect */
+		}
+
+		button:focus {
+			outline: none;
+			/* Remove outline when focused */
+		}
 	</style>
 </head>
 
@@ -217,15 +239,15 @@
 	</nav>
 
 	<!-- Mobile Menu (Hidden by default) -->
-<div id="mobile-menu" class="sm:hidden hidden fixed top-0 right-0 w-3/4 h-full bg-teal-500 text-white p-4">
-    <div class="space-y-4">
-        <a href="#" class="block text-white">Home</a>
-        <a href="#" class="block text-white">Categories</a>
-        <a href="#" class="block text-white">Contact</a>
-        <a href="#" id="sign-in-out" class="block text-white">Sign In</a> 
-        <a href="#" id="sign-in-out" class="block text-white">Sign Up</a> 
-    </div>
-</div>
+	<div id="mobile-menu" class="sm:hidden hidden fixed top-0 right-0 w-3/4 h-full bg-teal-500 text-white p-4">
+		<div class="space-y-4">
+			<a href="#" class="block text-white">Home</a>
+			<a href="#" class="block text-white">Categories</a>
+			<a href="#" class="block text-white">Contact</a>
+			<a href="#" id="sign-in-out" class="block text-white">Sign In</a>
+			<a href="#" id="sign-in-out" class="block text-white">Sign Up</a>
+		</div>
+	</div>
 
 	<!-- Categories Section -->
 	<section class="w-full bg-white py-6 shadow-md">
@@ -274,27 +296,271 @@
 	</div>
 
 	<!-- Pharmageorge Chemist Services Section -->
-<section class="pharm_services bg-gray-100 py-12" id="pharm_services">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Left Grid: Image -->
-            <div class="image-section flex justify-center items-center">
-                <img src="images/pharmacy_image.jpg" alt="Pharmageorge Chemist" class="w-full h-auto rounded-lg shadow-lg">
-            </div>
+	<section class="pharm_services bg-gray-100 py-12" id="pharm_services">
+		<div class="container mx-auto px-4">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<!-- Left Grid: Image -->
+				<div class="image-section flex justify-center items-center">
+					<img src="images/pharmacy_image.jpg" alt="Pharmageorge Chemist"
+						class="w-full h-auto rounded-lg shadow-lg">
+				</div>
 
-            <!-- Right Grid: Text About Pharmageorge Chemist -->
-            <div class="text-section flex flex-col justify-center space-y-4">
-                <h2 class="text-3xl font-semibold text-teal-600">Pharmageorge Chemist</h2>
-                <p class="text-lg text-gray-700">
-                    Pharmageorge Chemist is a trusted name in the pharmaceutical industry. With years of experience, we offer high-quality medications, healthcare products, and expert advice to ensure the well-being of our customers. Our services cater to all your pharmaceutical needs, from over-the-counter medications to specialized prescriptions.
-                </p>
-                <p class="text-lg text-gray-700">
-                    Whether you're seeking expert advice or reliable pharmaceutical products, Pharmageorge Chemist has got you covered. We are committed to providing excellent customer service and ensuring that you have access to the best healthcare products available.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
+				<!-- Right Grid: Text About Pharmageorge Chemist -->
+				<div class="text-section flex flex-col justify-center space-y-4">
+					<h2 class="text-3xl font-semibold text-teal-600">Pharmageorge Chemist</h2>
+					<p class="text-lg text-gray-700">
+						Pharmageorge Chemist is a trusted name in the pharmaceutical industry. With years of experience,
+						we offer high-quality medications, healthcare products, and expert advice to ensure the
+						well-being of our customers. Our services cater to all your pharmaceutical needs, from
+						over-the-counter medications to specialized prescriptions.
+					</p>
+					<p class="text-lg text-gray-700">
+						Whether you're seeking expert advice or reliable pharmaceutical products, Pharmageorge Chemist
+						has got you covered. We are committed to providing excellent customer service and ensuring that
+						you have access to the best healthcare products available.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Top Picks Section -->
+
+	<section class="top-picks py-12 bg-gray-100 shadow-2xl rounded-lg" id="top-picks">
+		<div class="container mx-auto px-4">
+			<h2 class="text-center text-3xl font-semibold text-teal-600 mb-8">Top Picks</h2>
+
+			<!-- Product Scroll Container -->
+			<div class="relative">
+				<!-- Scrollable Products Section -->
+				<div class="overflow-hidden">
+					<div class="product-scroll flex space-x-4 transition-transform duration-300">
+						<!-- Product Items go here -->
+						<!-- Product Item 1 -->
+						<div class="product-scroll flex space-x-4 transition-transform duration-300">
+							<div
+								class="product-item bg-white p-4 rounded-lg shadow-lg flex flex-col items-center w-[300px]">
+								<img src="images/product_1.png" alt="Product 6"
+									class="w-full h-48 object-cover rounded-md mb-4">
+								<h3 class="text-lg font-semibold text-gray-800">Product 6</h3>
+								<p class="text-gray-600">$99.99</p>
+							</div>
+						</div>
+
+						<!-- Product Item 2 -->
+						<div class="product-scroll flex space-x-4 transition-transform duration-300">
+							<div
+								class="product-item bg-white p-4 rounded-lg shadow-lg flex flex-col items-center w-[300px]">
+								<img src="images/product_02.png" alt="Product 6"
+									class="w-full h-48 object-cover rounded-md mb-4">
+								<h3 class="text-lg font-semibold text-gray-800">Product 6</h3>
+								<p class="text-gray-600">$99.99</p>
+							</div>
+						</div>
+
+						<!-- Product Item 3 -->
+						<div class="product-scroll flex space-x-4 transition-transform duration-300">
+							<div
+								class="product-item bg-white p-4 rounded-lg shadow-lg flex flex-col items-center w-[300px]">
+								<img src="images/product_03.png" alt="Product 6"
+									class="w-full h-48 object-cover rounded-md mb-4">
+								<h3 class="text-lg font-semibold text-gray-800">Product 6</h3>
+								<p class="text-gray-600">$99.99</p>
+							</div>
+						</div>
+
+						<!-- Product Item 4 -->
+						<div class="product-scroll flex space-x-4 transition-transform duration-300">
+							<div
+								class="product-item bg-white p-4 rounded-lg shadow-lg flex flex-col items-center w-[300px]">
+								<img src="images/product_04.png" alt="Product 6"
+									class="w-full h-48 object-cover rounded-md mb-4">
+								<h3 class="text-lg font-semibold text-gray-800">Product 6</h3>
+								<p class="text-gray-600">$99.99</p>
+							</div>
+						</div>
+
+						<!-- Product Item 5 -->
+						<div class="product-scroll flex space-x-4 transition-transform duration-300">
+							<div
+								class="product-item bg-white p-4 rounded-lg shadow-lg flex flex-col items-center w-[300px]">
+								<img src="images/product_05.png" alt="Product 6"
+									class="w-full h-48 object-cover rounded-md mb-4">
+								<h3 class="text-lg font-semibold text-gray-800">Product 6</h3>
+								<p class="text-gray-600">$99.99</p>
+							</div>
+						</div>
+
+						<!-----Product 6-->
+						<div class="product-scroll flex space-x-4 transition-transform duration-300">
+							<div
+								class="product-item bg-white p-4 rounded-lg shadow-lg flex flex-col items-center w-[300px]">
+								<img src="images/product_06.png" alt="Product 6"
+									class="w-full h-48 object-cover rounded-md mb-4">
+								<h3 class="text-lg font-semibold text-gray-800">Product 6</h3>
+								<p class="text-gray-600">$99.99</p>
+							</div>
+						</div>
+
+						<!-- Product Item 1 -->
+						<div class="product-scroll flex space-x-4 transition-transform duration-300">
+							<div
+								class="product-item bg-white p-4 rounded-lg shadow-lg flex flex-col items-center w-[300px]">
+								<img src="images/product_1.png" alt="Product 6"
+									class="w-full h-48 object-cover rounded-md mb-4">
+								<h3 class="text-lg font-semibold text-gray-800">Product 6</h3>
+								<p class="text-gray-600">$99.99</p>
+							</div>
+						</div>
+
+						<!-- Product Item 2 -->
+						<div class="product-scroll flex space-x-4 transition-transform duration-300">
+							<div
+								class="product-item bg-white p-4 rounded-lg shadow-lg flex flex-col items-center w-[300px]">
+								<img src="images/product_02.png" alt="Product 6"
+									class="w-full h-48 object-cover rounded-md mb-4">
+								<h3 class="text-lg font-semibold text-gray-800">Product 6</h3>
+								<p class="text-gray-600">$99.99</p>
+							</div>
+						</div>
+
+						<!-- Product Item 3 -->
+						<div class="product-scroll flex space-x-4 transition-transform duration-300">
+							<div
+								class="product-item bg-white p-4 rounded-lg shadow-lg flex flex-col items-center w-[300px]">
+								<img src="images/product_03.png" alt="Product 6"
+									class="w-full h-48 object-cover rounded-md mb-4">
+								<h3 class="text-lg font-semibold text-gray-800">Product 6</h3>
+								<p class="text-gray-600">$99.99</p>
+							</div>
+						</div>
+
+						<!-- Product Item 4 -->
+						<div class="product-scroll flex space-x-4 transition-transform duration-300">
+							<div
+								class="product-item bg-white p-4 rounded-lg shadow-lg flex flex-col items-center w-[300px]">
+								<img src="images/product_04.png" alt="Product 6"
+									class="w-full h-48 object-cover rounded-md mb-4">
+								<h3 class="text-lg font-semibold text-gray-800">Product 6</h3>
+								<p class="text-gray-600">$99.99</p>
+							</div>
+						</div>
+
+						<!-- Product Item 5 -->
+						<div class="product-scroll flex space-x-4 transition-transform duration-300">
+							<div
+								class="product-item bg-white p-4 rounded-lg shadow-lg flex flex-col items-center w-[300px]">
+								<img src="images/product_05.png" alt="Product 6"
+									class="w-full h-48 object-cover rounded-md mb-4">
+								<h3 class="text-lg font-semibold text-gray-800">Product 6</h3>
+								<p class="text-gray-600">$99.99</p>
+							</div>
+						</div>
+
+						<!-----Product 6-->
+						<div class="product-scroll flex space-x-4 transition-transform duration-300">
+							<div
+								class="product-item bg-white p-4 rounded-lg shadow-lg flex flex-col items-center w-[300px]">
+								<img src="images/product_06.png" alt="Product 6"
+									class="w-full h-48 object-cover rounded-md mb-4">
+								<h3 class="text-lg font-semibold text-gray-800">Product 6</h3>
+								<p class="text-gray-600">$99.99</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Left Arrow -->
+				<button
+					class="absolute left-0 top-1/2 transform -translate-y-1/2 text-teal-600 p-3 rounded-full focus:outline-none hover:scale-110"
+					id="scroll-left">
+					<i class="fas fa-chevron-left"></i>
+				</button>
+
+				<!-- Right Arrow -->
+				<button
+					class="absolute right-0 top-1/2 transform -translate-y-1/2 text-teal-600 p-3 rounded-full focus:outline-none hover:scale-110"
+					id="scroll-right">
+					<i class="fas fa-chevron-right"></i>
+				</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- JavaScript for Scrolling and Arrows -->
+	<script>
+		const productScroll = document.querySelector('.product-scroll');
+		const scrollLeftButton = document.getElementById('scroll-left');
+		const scrollRightButton = document.getElementById('scroll-right');
+		let scrollInterval;
+
+		// Ensure that the container is scrollable horizontally
+		if (productScroll) {
+			productScroll.style.overflowX = 'auto';  // Ensure horizontal scroll
+			productScroll.style.scrollBehavior = 'smooth'; // Smooth scroll by default
+		}
+
+		// Function to start auto-scrolling
+		function startAutoScroll() {
+			scrollInterval = setInterval(() => {
+				if (productScroll.scrollLeft + productScroll.clientWidth < productScroll.scrollWidth) {
+					// Scroll to the right automatically
+					productScroll.scrollBy({
+						left: 200, // Adjust this value for speed of scroll
+						behavior: 'smooth'
+					});
+				} else {
+					// If we've reached the end, reset to the beginning
+					productScroll.scrollLeft = 0;
+				}
+			}, 5000); // Auto scroll every 5 seconds
+		}
+
+		// Stop auto-scrolling
+		function stopAutoScroll() {
+			clearInterval(scrollInterval);
+		}
+
+		// Scroll left manually
+		scrollLeftButton.addEventListener('click', () => {
+			stopAutoScroll();
+			productScroll.scrollBy({
+				left: -200, // Scroll distance
+				behavior: 'smooth'
+			});
+			startAutoScroll(); // Restart auto-scrolling after manual interaction
+		});
+
+		// Scroll right manually
+		scrollRightButton.addEventListener('click', () => {
+			stopAutoScroll();
+			productScroll.scrollBy({
+				left: 200, // Scroll distance
+				behavior: 'smooth'
+			});
+			startAutoScroll(); // Restart auto-scrolling after manual interaction
+		});
+
+		// Start auto-scrolling when the page loads
+		document.addEventListener('DOMContentLoaded', () => {
+			startAutoScroll();
+		});
+	</script>
+
+	<!-- CSS to Hide the Scrollbar -->
+	<style>
+		/* Hide scrollbar for webkit browsers (Chrome, Safari) */
+		.product-scroll::-webkit-scrollbar {
+			display: none;
+			/* Hides the scrollbar */
+		}
+
+		/* Hide scrollbar for Firefox */
+		.product-scroll {
+			scrollbar-width: none;
+			/* Hide scrollbar in Firefox */
+		}
+	</style>
 
 
 	<!-- JavaScript to change the banner image -->
