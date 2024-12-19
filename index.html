@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pharmageorge Chemist Ltd || Pharmaceuticals</title>
-	<!----------Favicon-->
-	<link rel="icon" href="images/logo.png" type="image/x-icon">
     <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome 6.7.2 CDN -->
@@ -29,6 +27,63 @@
             50% {background-position: 100% 50%;}
             100% {background-position: 0% 50%;}
         }
+
+        /* Custom styles for the carousel */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            font-size: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Categories Section */
+        .category-item {
+            background-color: #f3f4f6;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .category-item:hover {
+            background-color: #4ade80;
+            transform: scale(1.05);
+        }
+
+        .category-item i {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
     </style>
 </head>
 <body class="bg-gray-100">
@@ -174,37 +229,54 @@
     </nav>
 
     <!-- Mobile Menu (Hidden by default) -->
-    <div id="mobile-menu" class="sm:hidden hidden bg-teal-500 text-white w-full py-4 px-6">
-        <div class="flex flex-col space-y-4">
-            <a href="#" class="text-white hover:text-teal-300">Home</a>
-            <a href="#" class="text-white hover:text-teal-300">Categories</a>
-            <a href="#" class="text-white hover:text-teal-300">Contact</a>
-            <a href="#" class="text-white hover:text-teal-300">Sign In</a>
-            <a href="#" class="text-white hover:text-teal-300">Sign Up</a>
+    <div id="mobile-menu" class="sm:hidden hidden">
+        <div class="p-4 space-y-4">
+            <a href="#" class="block text-teal-600">Home</a>
+            <a href="#" class="block text-teal-600">Categories</a>
+            <a href="#" class="block text-teal-600">Contact</a>
         </div>
     </div>
 
-    <script>
-        // Toggle the mobile menu visibility
-        const hamburgerButton = document.getElementById("hamburger-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-
-        hamburgerButton.addEventListener("click", function() {
-            mobileMenu.classList.toggle("hidden");
-        });
-
-        // Cart count logic (for testing, simulating adding a product to the cart)
-        let cartCount = 0;
-        document.querySelector('.fa-shopping-cart').addEventListener('click', function() {
-            cartCount++;
-            document.getElementById('cart-count').textContent = cartCount;
-        });
-
-        // Book Appointment button hover animation (gradient)
-        document.getElementById('book-appointment').addEventListener('click', function() {
-            alert('Appointment Booked!');
-        });
-    </script>
+    <!-- Categories Section -->
+    <section class="w-full bg-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center text-2xl font-semibold mb-4">Shop By Category</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+                <div class="category-item">
+                    <i class="fas fa-pills"></i>
+                    <span class="text-sm">Pharmacy</span>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-tooth"></i>
+                    <span class="text-sm">Dental Care</span>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-heartbeat"></i>
+                    <span class="text-sm">Heart Health</span>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-syringe"></i>
+                    <span class="text-sm">Vaccines</span>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-laptop-medical"></i>
+                    <span class="text-sm">Medical Devices</span>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-baby"></i>
+                    <span class="text-sm">Baby Care</span>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-seedling"></i>
+                    <span class="text-sm">Herbal Medicine</span>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-capsules"></i>
+                    <span class="text-sm">Supplements</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
