@@ -695,7 +695,7 @@ button {
 	  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 		
 		<!-- First Grid (Image with Hover Effects) -->
-		<div class="relative group bg-teal-500 rounded-lg overflow-hidden h-[calc(100vh)]">
+		<div class="relative group col-span-1 h-[calc(100vh)]">
 		  <img src="images/drug 1.jpg" alt="Product" class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-500">
 		  
 		  <div class="absolute top-1/4 left-6 text-white">
@@ -707,6 +707,7 @@ button {
 			  </span>
 			</div>
 		  </div>
+		  
 		</div>
 		
 		<!-- Second Grid (Nested 2 Grids) -->
@@ -725,6 +726,7 @@ button {
 				</span>
 			  </div>
 			</div>
+			
 		  </div>
 		  
 		  <!-- Bottom Grid (Image with Hover Effects) -->
@@ -740,15 +742,29 @@ button {
 				</span>
 			  </div>
 			</div>
+			
 		  </div>
 		</div>
 		
 	  </div>
 	</div>
   </section>
+	<script>
+		// Example of adding a scroll-triggered zoom effect (Mobile-friendly)
+document.addEventListener('scroll', function() {
+  const images = document.querySelectorAll('.group img');
+  images.forEach(img => {
+    const rect = img.getBoundingClientRect();
+    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+      img.classList.add('scale-110');
+    } else {
+      img.classList.remove('scale-110');
+    }
+  });
+});
+
+	</script>  
   
-  
-	  
 
 </body>
 
