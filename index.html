@@ -243,6 +243,18 @@
 			</div>
 		</div>
 
+			<!-- Search Bar with Search Button -->
+			<div class="flex justify-center items-center">
+				<div class="flex flex-col sm:flex-row items-center justify-center w-full sm:w-1/2 space-y-4 sm:space-y-0 sm:space-x-4">
+				  <input type="text" placeholder="Search products..." class="px-4 py-2 rounded-lg w-full sm:w-2/3">
+				  <button class="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 sm:w-1/3">
+					Search
+				  </button>
+				</div>
+			  </div>			  
+			  
+	  
+
 		<!-- Mobile Row for Wishlist, Cart, Search, Book Appointment -->
 		<div class="sm:hidden flex justify-center items-center mt-4 space-x-6">
 			<!-- Wishlist Icon and Cart Icon with minimal spacing -->
@@ -259,13 +271,7 @@
 				</div>
 			</div>
 
-			<!-- Search Bar with Search Button -->
-			<div class="flex items-center space-x-2">
-				<input type="text" placeholder="Search products..." class="px-4 py-2 rounded-lg w-32">
-				<button class="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700">Search</button>
-			</div>
 		</div>
-
 		<!-- Book Appointment Button -->
 		<div class="sm:hidden mt-4 flex justify-center">
 			<button id="book-appointment" class="px-6 py-2 text-white font-bold rounded-lg gradient-hover">
@@ -280,16 +286,9 @@
 				<img src="images/logo.png" alt="Logo" class="h-30">
 			</div>
 
-			<!-- Middle Grid: Search + Menu -->
-			<div class="flex flex-col sm:flex-row justify-between items-center w-full space-y-4 sm:space-y-0 sm:space-x-4 md:flex">
-				<!-- Top Grid: Search Space -->
-				<div class="flex items-center space-x-2">
-					<input type="text" placeholder="Search products..." class="px-4 py-2 rounded-lg w-48">
-					<button class="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700">Search</button>
-				</div>
 			
 				<!-- Bottom Grid: Menu Options -->
-				<div class="flex space-x-4">
+				<div class="flex space-x-4 pr-16">
 					<a href="#" class="text-teal-600 hover:text-teal-700">Home</a>
 					<a href="#" class="text-teal-600 hover:text-teal-700">Shop</a>
 					<a href="#" class="text-teal-600 hover:text-teal-700">About Us</a>
