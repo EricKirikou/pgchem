@@ -464,7 +464,7 @@
 		});
 	</script>
 
-	<section>
+	<section class="mb-24">
 		<div
 			class="relative bg-gradient-to-r from-pink-400 to-yellow-400 flex justify-center items-center overflow-hidden h-[30vh] sm:h-[20vh] md:h-[30vh] lg:h-[40vh]">
 			<!-- Apply text-shadow for the drop shadow effect -->
@@ -476,9 +476,353 @@
 		</div>
 	</section>
 
-
-
-
+	<section class="appointment-section">
+		<h1>Book Your Appointment</h1>
+	
+		<div class="step-nav">
+			<button id="prev-btn" disabled>Back</button>
+			<button id="next-btn" disabled>Next</button>
+		</div>
+	
+		<!-- Steps: Location, Staff, Service, Date and Time, User Info, Preview -->
+	
+		<div id="location-step" class="step">
+			<h2>Select Your Location</h2>
+			<div class="location-grid">
+				<div class="location-box">Location 1</div>
+				<div class="location-box">Location 2</div>
+				<div class="location-box">Location 3</div>
+				<div class="location-box">Location 4</div>
+				<div class="location-box">Location 5</div>
+				<div class="location-box">Location 6</div>
+				<div class="location-box">Location 7</div>
+			</div>
+		</div>
+	
+		<div id="staff-step" class="step" style="display: none;">
+			<h2>Select Staff</h2>
+			<div class="form-field">
+				<select id="staff-select">
+					<option>Select Staff</option>
+					<option>Pharmacist</option>
+					<option>Synlab Medical Diagnostic</option>
+				</select>
+			</div>
+		</div>
+	
+		<div id="service-step" class="step" style="display: none;">
+			<h2>Select Service</h2>
+			<div class="form-field">
+				<select id="service-select">
+					<option>Select Service</option>
+					<option>Consulting</option>
+					<option>Weight Management</option>
+				</select>
+			</div>
+		</div>
+	
+		<div id="datetime-step" class="step" style="display: none;">
+			<h2>Select Date and Time</h2>
+			<div class="form-field">
+				<input type="date" id="appointment-date">
+			</div>
+			<div class="form-field">
+				<input type="time" id="appointment-time">
+			</div>
+		</div>
+	
+		<div id="user-info-step" class="step" style="display: none;">
+			<h2>Enter Your Information</h2>
+			<div class="form-field">
+				<input type="text" id="user-name" placeholder="Your Name">
+			</div>
+			<div class="form-field">
+				<input type="tel" id="user-phone" placeholder="Phone Number">
+			</div>
+			<div class="form-field">
+				<input type="text" id="email" placeholder="Your Email Address">
+			</div>
+		</div>
+	
+		<div id="preview-step" class="step" style="display: none;">
+			<h2>Preview Your Appointment</h2>
+			<div id="preview-details"></div>
+		</div>
+	
+		<footer>
+			<p>Need assistance? Call us at +233(0)23 674 2324</p>
+		</footer>
+	</section>
+	
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+	
+		body {
+			font-family: 'Arial', sans-serif;
+			background-color: #f7fafc;
+			padding: 20px;
+		}
+	
+		.appointment-section {
+			max-width: 800px;
+			width: 100%;
+			margin: 0 auto;
+			background-color: #fff;
+			padding: 30px;
+			border-radius: 8px;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		}
+	
+		h1 {
+			text-align: center;
+			font-size: 32px;
+			color: #38b2ac;
+			margin-bottom: 30px;
+		}
+	
+		.step-nav {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 20px;
+		}
+	
+		.step-nav button {
+			background-color: #38b2ac;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+	
+		.step-nav button:disabled {
+			background-color: #e2e8f0;
+			cursor: not-allowed;
+		}
+	
+		.step-nav button:hover {
+			background-color: #319795;
+		}
+	
+		.step {
+			display: none;
+		}
+	
+		.location-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 20px;
+			margin-bottom: 20px;
+		}
+	
+		.location-box {
+			padding: 20px;
+			background-color: #f7fafc;
+			border: 1px solid #e2e8f0;
+			text-align: center;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: transform 0.2s ease, box-shadow 0.3s ease;
+		}
+	
+		.location-box:hover {
+			transform: scale(1.05);
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+	
+		.location-box.selected {
+			border: 2px solid #38b2ac;
+			box-shadow: 0 4px 10px rgba(56, 178, 172, 0.3);
+		}
+	
+		.form-field input,
+		.form-field select {
+			width: 100%;
+			padding: 12px;
+			margin: 10px 0;
+			border-radius: 5px;
+			border: 1px solid #e2e8f0;
+			font-size: 16px;
+			outline: none;
+			transition: border-color 0.3s ease;
+		}
+	
+		.form-field input:focus,
+		.form-field select:focus {
+			border-color: #38b2ac;
+		}
+	
+		footer {
+			background-color: #38b2ac;
+			color: white;
+			text-align: center;
+			padding: 15px;
+			margin-top: 30px;
+			border-radius: 5px;
+		}
+	
+		@media (max-width: 768px) {
+			.location-grid {
+				grid-template-columns: 1fr 1fr;
+			}
+	
+			.appointment-section {
+				padding: 20px;
+			}
+	
+			h1 {
+				font-size: 28px;
+			}
+		}
+	
+		@media (max-width: 480px) {
+			.location-grid {
+				grid-template-columns: 1fr;
+			}
+	
+			.appointment-section {
+				width: 100%;
+				padding: 15px;
+			}
+	
+			h1 {
+				font-size: 24px;
+			}
+	
+			.step-nav {
+				flex-direction: column;
+			}
+	
+			.step-nav button {
+				margin-bottom: 10px;
+			}
+		}
+	</style>
+	
+	<script>
+		let prevBtn = document.getElementById('prev-btn');
+		let nextBtn = document.getElementById('next-btn');
+		let locationStep = document.getElementById('location-step');
+		let staffStep = document.getElementById('staff-step');
+		let serviceStep = document.getElementById('service-step');
+		let datetimeStep = document.getElementById('datetime-step');
+		let userInfoStep = document.getElementById('user-info-step');
+		let previewStep = document.getElementById('preview-step');
+	
+		let locationSelected = false;
+		let staffSelected = false;
+		let serviceSelected = false;
+		let dateTimeSelected = false;
+		let userInfoEntered = false;
+	
+		let locationBoxes = document.querySelectorAll('.location-box');
+		locationBoxes.forEach(locationBox => {
+			locationBox.addEventListener('click', function() {
+				locationBoxes.forEach(box => box.classList.remove('selected'));
+				this.classList.add('selected');
+				locationSelected = true;
+				nextBtn.disabled = false;
+			});
+		});
+	
+		let staffSelect = document.getElementById('staff-select');
+		staffSelect.addEventListener('change', function() {
+			staffSelected = true;
+			nextBtn.disabled = false;
+		});
+	
+		let serviceSelect = document.getElementById('service-select');
+		serviceSelect.addEventListener('change', function() {
+			serviceSelected = true;
+			nextBtn.disabled = false;
+		});
+	
+		let appointmentDate = document.getElementById('appointment-date');
+		let appointmentTime = document.getElementById('appointment-time');
+		appointmentDate.addEventListener('change', function() {
+			dateTimeSelected = true;
+			nextBtn.disabled = false;
+		});
+		appointmentTime.addEventListener('change', function() {
+			dateTimeSelected = true;
+			nextBtn.disabled = false;
+		});
+	
+		let userName = document.getElementById('user-name');
+		let userPhone = document.getElementById('user-phone');
+		userName.addEventListener('input', function() {
+			userInfoEntered = true;
+			nextBtn.disabled = false;
+		});
+		userPhone.addEventListener('input', function() {
+			userInfoEntered = true;
+			nextBtn.disabled = false;
+		});
+	
+		// Show location step initially
+		locationStep.style.display = 'block';
+		nextBtn.disabled = true; // Keep the Next button disabled until location is selected
+	
+		nextBtn.addEventListener('click', function() {
+			if (locationSelected && locationStep.style.display === 'block') {
+				locationStep.style.display = 'none';
+				staffStep.style.display = 'block';
+				prevBtn.disabled = false;
+			} else if (staffSelected && staffStep.style.display === 'block') {
+				staffStep.style.display = 'none';
+				serviceStep.style.display = 'block';
+			} else if (serviceSelected && serviceStep.style.display === 'block') {
+				serviceStep.style.display = 'none';
+				datetimeStep.style.display = 'block';
+			} else if (dateTimeSelected && datetimeStep.style.display === 'block') {
+				datetimeStep.style.display = 'none';
+				userInfoStep.style.display = 'block';
+			} else if (userInfoEntered && userInfoStep.style.display === 'block') {
+				userInfoStep.style.display = 'none';
+				previewStep.style.display = 'block';
+				displayPreview();
+			}
+		});
+	
+		prevBtn.addEventListener('click', function() {
+			if (previewStep.style.display === 'block') {
+				previewStep.style.display = 'none';
+				userInfoStep.style.display = 'block';
+			} else if (userInfoStep.style.display === 'block') {
+				userInfoStep.style.display = 'none';
+				datetimeStep.style.display = 'block';
+			} else if (datetimeStep.style.display === 'block') {
+				datetimeStep.style.display = 'none';
+				serviceStep.style.display = 'block';
+			} else if (serviceStep.style.display === 'block') {
+				serviceStep.style.display = 'none';
+				staffStep.style.display = 'block';
+			} else if (staffStep.style.display === 'block') {
+				staffStep.style.display = 'none';
+				locationStep.style.display = 'block';
+				prevBtn.disabled = true;
+			}
+		});
+	
+		function displayPreview() {
+			let previewDetails = `
+				<p><strong>Location:</strong> ${document.querySelector('.location-box.selected').innerText}</p>
+				<p><strong>Staff:</strong> ${staffSelect.value}</p>
+				<p><strong>Service:</strong> ${serviceSelect.value}</p>
+				<p><strong>Date:</strong> ${appointmentDate.value}</p>
+				<p><strong>Time:</strong> ${appointmentTime.value}</p>
+				<p><strong>Name:</strong> ${userName.value}</p>
+				<p><strong>Phone:</strong> ${userPhone.value}</p>
+			`;
+			document.getElementById('preview-details').innerHTML = previewDetails;
+		}
+	</script>
+	
 
 
 
@@ -494,7 +838,7 @@
 
 
 	<!----------Footers-->
-	<section class="py-12 bg-white">
+	<section class="py-12 bg-white mt-24">
 		<div class="container mx-auto px-4">
 			<!-- Grid Layout for 5 Grids -->
 			<div class="grid grid-cols-1 md:grid-cols-5 gap-6">
