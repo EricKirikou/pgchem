@@ -183,7 +183,12 @@
 
 }
 
-
+/* Remove shadow for mobile */
+@media (max-width: 768px) {
+    .custom-navbar {
+        filter: none;
+    }
+}
 	</style>
 </head>
 
@@ -275,7 +280,7 @@
 		</div>
 	  
 		<!-- Mobile Row for Wishlist, Cart, Search, Book Appointment -->
-		<div class="sm:hidden flex justify-center items-center mt-4 space-x-6 mb-8">
+		<div class="sm:hidden flex justify-center items-center mt-4 space-x-6">
 		  <!-- Wishlist Icon and Cart Icon with minimal spacing -->
 		  <div class="flex items-center space-x-4">
 			<a href="#" class="text-teal-600 hover:text-teal-700">
