@@ -63,11 +63,45 @@
 		/* Custom styles for the mobile menu */
 		#mobile-menu {
 			display: none;
-			transition: max-height 0.3s ease-in-out;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.8);
+			/* Semi-transparent background */
+			z-index: 9999;
+			/* Ensure it overlays above all other sections */
+			overflow-y: auto;
+			/* Enable scrolling if needed */
+			transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 		}
 
 		#mobile-menu.open {
 			display: block;
+			opacity: 1;
+			transform: translateX(0);
+		}
+
+		/* Menu links styling */
+		#mobile-menu b {
+			display: flex;
+			flex-direction: column;
+			padding: 20px;
+			gap: 15px;
+		}
+
+		#mobile-menu a {
+			text-align: center;
+			color: white;
+			font-size: 18px;
+			padding: 10px;
+			transition: color 0.3s ease;
+		}
+
+		#mobile-menu a:hover {
+			color: #ff6f61;
+			/* Color on hover for links */
 		}
 
 		/* Remove background, set icon color, and add hover effect */
@@ -342,10 +376,11 @@
 		</div>
 
 		<!-- Book Appointment Button -->
-		<div class="sm:hidden mt-4 flex justify-center">
-			<button id="book-appointment" class="px-6 py-2 text-white font-bold rounded-lg gradient-hover">
-				BOOK APPOINTMENT
-			</button>
+		<div class="sm:hidden py-4 flex justify-center">
+			<a href="book.html"><button id="book-appointment"
+					class="px-6 py-2 text-white font-bold rounded-lg gradient-hover">
+					BOOK APPOINTMENT
+				</button></a>
 		</div>
 
 		<!-- Desktop Layout -->
@@ -368,7 +403,7 @@
 				<!-- Menu Options (Below the Search Bar) -->
 				<b>
 					<div class="flex space-x-8 text-lg mr-26">
-						<a href="#" class="text-teal-600 hover:text-teal-700">HOME</a>
+						<a href="index.html" class="text-teal-600 hover:text-teal-700">HOME</a>
 						<a href="#" class="text-teal-600 hover:text-teal-700">SHOP</a>
 						<a href="#" class="text-teal-600 hover:text-teal-700">ABOUT US</a>
 						<a href="#" class="text-teal-600 hover:text-teal-700">CONTACT US</a>
@@ -393,21 +428,41 @@
 
 
 
-	<!-- Mobile Menu (Hidden by default) -->
-	<div id="mobile-menu" class="sm:hidden hidden fixed top-0 right-0 w-3/4 h-full bg-teal-500 text-white p-4">
-		<b>
-			<div class="space-y-4">
-				<a href="#" class="block text-white">HOME</a>
-				<a href="#" class="block text-white">SHOP</a>
-				<a href="#" class="block text-white">ABOUT US</a>
-				<a href="#" class="block text-white">CONTACT US</a>
-				<a href="#" class="block text-white">SERVICES</a>
-				<a href="#" class="block text-white">NEWS</a>
-				<a href="#" id="sign-in-out" class="block text-white">SIGN IN </a>
-				<a href="#" id="sign-in-out" class="block text-white">SIGN UP</a>
-		</b>
+	<div id="mobile-menu-overlay">
+		<div id="mobile-menu" class="sm:hidden hidden fixed top-0 right-0 w-3/4 h-full bg-teal-500 text-white p-4">
+			<b>
+				<div class="space-y-4">
+					<a href="index.html" class="block text-white">HOME</a>
+					<a href="#" class="block text-white">SHOP</a>
+					<a href="#" class="block text-white">ABOUT US</a>
+					<a href="#" class="block text-white">CONTACT US</a>
+					<a href="#" class="block text-white">SERVICES</a>
+					<a href="#" class="block text-white">NEWS</a>
+					<a href="#" id="sign-in-out" class="block text-white">SIGN IN </a>
+					<a href="#" id="sign-in-out" class="block text-white">SIGN UP</a>
+			</b>
+		</div>
+
+	</div><!-- Mobile Menu (Hidden by default) -->
 	</div>
-	</div>
+	<script>
+		const hamburgerButton = document.getElementById('hamburger-button');
+		const mobileMenu = document.getElementById('mobile-menu');
+		const overlay = document.getElementById('mobile-menu-overlay');
+		const body = document.body;
+
+		hamburgerButton.addEventListener('click', function () {
+			mobileMenu.classList.toggle('open');
+			overlay.classList.toggle('open');
+			body.classList.toggle('menu-open');
+		});
+
+		overlay.addEventListener('click', function () {
+			mobileMenu.classList.remove('open');
+			overlay.classList.remove('open');
+			body.classList.remove('menu-open');
+		});
+	</script>
 
 	<section>
 		<div

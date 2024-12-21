@@ -59,14 +59,44 @@
 		}
 
 		/* Custom styles for the mobile menu */
-		#mobile-menu {
-			display: none;
-			transition: max-height 0.3s ease-in-out;
-		}
+#mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    z-index: 9999; /* Ensure it overlays above all other sections */
+    overflow-y: auto; /* Enable scrolling if needed */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
 
-		#mobile-menu.open {
-			display: block;
-		}
+#mobile-menu.open {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Menu links styling */
+#mobile-menu b {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+}
+
+#mobile-menu a {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+#mobile-menu a:hover {
+    color: #ff6f61; /* Color on hover for links */
+}
 
 		/* Remove background, set icon color, and add hover effect */
 		button {
@@ -176,19 +206,20 @@
 				padding: 8px;
 			}
 		}
+
 		/* Custom Navbar Styling */
-/* Custom Navbar Styling */
-.custom-navbar {
-    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3));
+		/* Custom Navbar Styling */
+		.custom-navbar {
+			filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3));
 
-}
+		}
 
-/* Remove shadow for mobile */
-@media (max-width: 768px) {
-    .custom-navbar {
-        filter: none;
-    }
-}
+		/* Remove shadow for mobile */
+		@media (max-width: 768px) {
+			.custom-navbar {
+				filter: none;
+			}
+		}
 	</style>
 </head>
 
@@ -245,108 +276,108 @@
 	<nav class="w-full bg-white pb-0 px-4 custom-navbar">
 		<!-- Mobile Layout (Unchanged) -->
 		<div class="sm:hidden flex justify-between items-center w-full">
-		  <!-- Left Grid: Menu (Hamburger Icon) -->
-		  <div class="flex items-center">
-			<button class="text-teal-600" id="hamburger-button">
-			  <i class="fas fa-bars text-xl"></i>
-			</button>
-		  </div>
-	  
-		  <!-- Right Grid: Logo (Increased size) -->
-		  <div class="flex items-center justify-end w-1/3">
-			<img src="images/logo.png" alt="Logo" class="h-16">
-		  </div>
+			<!-- Left Grid: Menu (Hamburger Icon) -->
+			<div class="flex items-center">
+				<button class="text-teal-600" id="hamburger-button">
+					<i class="fas fa-bars text-xl"></i>
+				</button>
+			</div>
+
+			<!-- Right Grid: Logo (Increased size) -->
+			<div class="flex items-center justify-end w-1/3">
+				<img src="images/logo.png" alt="Logo" class="h-16">
+			</div>
 		</div>
-	  
+
 		<!-- Search Bar with Search Button (Unchanged) -->
 		<div class="flex items-center w-full px-4">
-		  <!-- Top Grid: Sign In / Sign Up, Wishlist, Cart (Hidden on Mobile) -->
-		  <div class="hidden sm:flex items-center space-x-4 justify-end sm:ml-auto mt-8">
-			<b>
-			  <a href="#" class="text-teal-600 hover:text-teal-700">SIGN IN /</a>
-			  <a href="#" class="text-teal-600 hover:text-teal-700">SIGN UP</a>
-			</b>
-			<a href="#" class="text-teal-600 hover:text-teal-700">
-			  <i class="fas fa-heart"></i> <!-- Heart Icon for Wishlist -->
-			</a>
-			<div class="relative">
-			  <a href="#" class="text-teal-600 hover:text-teal-700">
-				<i class="fas fa-shopping-cart"></i> <!-- Cart Icon -->
-			  </a>
-			  <span id="cart-count"
-				class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">0</span>
+			<!-- Top Grid: Sign In / Sign Up, Wishlist, Cart (Hidden on Mobile) -->
+			<div class="hidden sm:flex items-center space-x-4 justify-end sm:ml-auto mt-8">
+				<b>
+					<a href="#" class="text-teal-600 hover:text-teal-700">SIGN IN /</a>
+					<a href="#" class="text-teal-600 hover:text-teal-700">SIGN UP</a>
+				</b>
+				<a href="#" class="text-teal-600 hover:text-teal-700">
+					<i class="fas fa-heart"></i> <!-- Heart Icon for Wishlist -->
+				</a>
+				<div class="relative">
+					<a href="#" class="text-teal-600 hover:text-teal-700">
+						<i class="fas fa-shopping-cart"></i> <!-- Cart Icon -->
+					</a>
+					<span id="cart-count"
+						class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">0</span>
+				</div>
 			</div>
-		  </div>
 		</div>
-	  
+
 		<!-- Mobile Row for Wishlist, Cart, Search, Book Appointment -->
 		<div class="sm:hidden flex justify-center items-center mt-4 space-x-6">
-		  <!-- Wishlist Icon and Cart Icon with minimal spacing -->
-		  <div class="flex items-center space-x-4">
-			<a href="#" class="text-teal-600 hover:text-teal-700">
-			  <i class="fas fa-heart"></i>
-			</a>
-			<div class="relative">
-			  <a href="#" class="text-teal-600 hover:text-teal-700">
-				<i class="fas fa-shopping-cart"></i>
-			  </a>
-			  <span id="cart-count"
-				class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">0</span>
+			<!-- Wishlist Icon and Cart Icon with minimal spacing -->
+			<div class="flex items-center space-x-4">
+				<a href="#" class="text-teal-600 hover:text-teal-700">
+					<i class="fas fa-heart"></i>
+				</a>
+				<div class="relative">
+					<a href="#" class="text-teal-600 hover:text-teal-700">
+						<i class="fas fa-shopping-cart"></i>
+					</a>
+					<span id="cart-count"
+						class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">0</span>
+				</div>
 			</div>
-		  </div>
 		</div>
-	  
+
 		<!-- Book Appointment Button -->
-		<div class="sm:hidden mt-4 flex justify-center">
-		  <button id="book-appointment" class="px-6 py-2 text-white font-bold rounded-lg gradient-hover">
-			BOOK APPOINTMENT
-		  </button>
+		<div class="sm:hidden py-4 flex justify-center">
+			<a href="book.html"><button id="book-appointment" class="px-6 py-2 text-white font-bold rounded-lg gradient-hover">
+				BOOK APPOINTMENT
+			</button></a>
 		</div>
-	  
+
 		<!-- Desktop Layout -->
 		<div class="hidden sm:flex justify-start items-center w-full">
-		  <!-- Left Grid: Logo (Increased size) -->
-		  <div class="flex items-center justify-start w-1/3">
-			<img src="images/logo.png" alt="Logo" class="h-30 mr-24">
-		  </div>
-	  
-		  <!-- Right Grid: Menu Options (Menu aligns next to search) -->
-		  <div class="flex flex-col items-center w-full px-4">
-			<!-- Search Area with Button (Centered and shifted right) -->
-			<div class="flex items-center w-full sm:w-1/2 mx-auto sm:ml-40 mb-4">
-			  <input type="text" placeholder="Search products..." class="px-6 py-2 rounded-lg w-full border-2">
-			  <button class="px-6 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700">
-				Search
-			  </button>
+			<!-- Left Grid: Logo (Increased size) -->
+			<div class="flex items-center justify-start w-1/3">
+				<img src="images/logo.png" alt="Logo" class="h-30 mr-24">
 			</div>
-	  
-			<!-- Menu Options (Below the Search Bar) -->
-			<b>
-			  <div class="flex space-x-8 text-lg mr-26">
-				<a href="index.html" class="text-teal-600 hover:text-teal-700">HOME</a>
-				<a href="#" class="text-teal-600 hover:text-teal-700">SHOP</a>
-				<a href="#" class="text-teal-600 hover:text-teal-700">ABOUT US</a>
-				<a href="#" class="text-teal-600 hover:text-teal-700">CONTACT US</a>
-				<a href="#" class="text-teal-600 hover:text-teal-700">SERVICES</a>
-				<a href="#" class="text-teal-600 hover:text-teal-700">NEWS</a>
-			  </div>
-			</b>
-		  </div>
-	  
-		  <div class="flex items-center space-x-6">
-			<!-- Bottom Grid: Book Appointment Button -->
-			<div>
-			  <a href="book.html"><button id="book-appointment"
-				class="px-6 py-1 text-white font-bold rounded-lg bg-teal-600 gradient-hover">
-				BOOK APPOINTMENT
-			  </button></a>
+
+			<!-- Right Grid: Menu Options (Menu aligns next to search) -->
+			<div class="flex flex-col items-center w-full px-4">
+				<!-- Search Area with Button (Centered and shifted right) -->
+				<div class="flex items-center w-full sm:w-1/2 mx-auto sm:ml-40 mb-4">
+					<input type="text" placeholder="Search products..." class="px-6 py-2 rounded-lg w-full border-2">
+					<button class="px-6 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700">
+						Search
+					</button>
+				</div>
+
+				<!-- Menu Options (Below the Search Bar) -->
+				<b>
+					<div class="flex space-x-8 text-lg mr-26">
+						<a href="index.html" class="text-teal-600 hover:text-teal-700">HOME</a>
+						<a href="#" class="text-teal-600 hover:text-teal-700">SHOP</a>
+						<a href="#" class="text-teal-600 hover:text-teal-700">ABOUT US</a>
+						<a href="#" class="text-teal-600 hover:text-teal-700">CONTACT US</a>
+						<a href="#" class="text-teal-600 hover:text-teal-700">SERVICES</a>
+						<a href="#" class="text-teal-600 hover:text-teal-700">NEWS</a>
+					</div>
+				</b>
 			</div>
-		  </div>
+
+			<div class="flex items-center space-x-6">
+				<!-- Bottom Grid: Book Appointment Button -->
+				<div>
+					<a href="book.html"><button id="book-appointment"
+							class="px-6 py-1 text-white font-bold rounded-lg bg-teal-600 gradient-hover">
+							BOOK APPOINTMENT
+						</button></a>
+				</div>
+			</div>
 		</div>
-	  </nav>
-	  
-	  
-	  
+	</nav>
+
+
+
 
 	<!-- Mobile Menu (Hidden by default) -->
 	<div id="mobile-menu" class="sm:hidden hidden fixed top-0 right-0 w-3/4 h-full bg-teal-500 text-white p-4">
