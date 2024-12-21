@@ -247,55 +247,57 @@
 
 		<!-- Search Bar with Search Button (Unchanged) -->
 		<div class="flex items-center w-full px-4">
-			
-		  
+
+
 			<!-- Top Grid: Sign In / Sign Up, Wishlist, Cart (Hidden on Mobile) -->
 			<div class="hidden sm:flex items-center space-x-4 justify-end sm:ml-auto">
-			  <a href="#" class="text-teal-600 hover:text-teal-700">Sign In</a>
-			  <a href="#" class="text-teal-600 hover:text-teal-700">Sign Up</a>
-			  <a href="#" class="text-teal-600 hover:text-teal-700">
-				<i class="fas fa-heart"></i> <!-- Heart Icon for Wishlist -->
-			  </a>
-			  <div class="relative">
+				<b>
+					<a href="#" class="text-teal-600 hover:text-teal-700">SIGN IN</a>
+					<a href="#" class="text-teal-600 hover:text-teal-700">SIGN UP</a>
+				</b>
 				<a href="#" class="text-teal-600 hover:text-teal-700">
-				  <i class="fas fa-shopping-cart"></i> <!-- Cart Icon -->
+					<i class="fas fa-heart"></i> <!-- Heart Icon for Wishlist -->
 				</a>
-				<span id="cart-count"
-				  class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">0</span>
-			  </div>
+				<div class="relative">
+					<a href="#" class="text-teal-600 hover:text-teal-700">
+						<i class="fas fa-shopping-cart"></i> <!-- Cart Icon -->
+					</a>
+					<span id="cart-count"
+						class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">0</span>
+				</div>
 			</div>
-		  </div>
-		  
-		  <!-- The rest of the content below the ml-64 -->
-		  <div class="ml-64 w-full">
+		</div>
+
+		<!-- The rest of the content below the ml-64 -->
+		<div class="ml-64 w-full">
 			<!-- Your other content goes here -->
 			<!-- You can add additional sections here -->
-		  </div>
-		  
-		  <!-- Mobile Row for Wishlist, Cart, Search, Book Appointment -->
-		  <div class="sm:hidden flex justify-center items-center mt-4 space-x-6">
+		</div>
+
+		<!-- Mobile Row for Wishlist, Cart, Search, Book Appointment -->
+		<div class="sm:hidden flex justify-center items-center mt-4 space-x-6">
 			<!-- Wishlist Icon and Cart Icon with minimal spacing -->
 			<div class="flex items-center space-x-4">
-			  <a href="#" class="text-teal-600 hover:text-teal-700">
-				<i class="fas fa-heart"></i>
-			  </a>
-			  <div class="relative">
 				<a href="#" class="text-teal-600 hover:text-teal-700">
-				  <i class="fas fa-shopping-cart"></i>
+					<i class="fas fa-heart"></i>
 				</a>
-				<span id="cart-count"
-				  class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">0</span>
-			  </div>
+				<div class="relative">
+					<a href="#" class="text-teal-600 hover:text-teal-700">
+						<i class="fas fa-shopping-cart"></i>
+					</a>
+					<span id="cart-count"
+						class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">0</span>
+				</div>
 			</div>
-		  </div>
-		  
-		  <!-- Book Appointment Button -->
-		  <div class="sm:hidden mt-4 flex justify-center">
+		</div>
+
+		<!-- Book Appointment Button -->
+		<div class="sm:hidden mt-4 flex justify-center">
 			<button id="book-appointment" class="px-6 py-2 text-white font-bold rounded-lg gradient-hover">
-			  Book Appointment
+				BOOK APPOINTMENT
 			</button>
-		  </div>
-		  
+		</div>
+
 
 		<!-- Desktop Layout -->
 		<div class="hidden sm:flex justify-start items-center w-full">
@@ -308,34 +310,31 @@
 			<div class="flex flex-col items-center w-full px-4">
 				<!-- Search Area with Button (Centered and shifted right) -->
 				<div class="flex items-center w-full sm:w-1/2 mx-auto sm:ml-40 mb-4">
-				  <input type="text" placeholder="Search products..." class="px-6 py-2 rounded-lg w-full border-2">
-				  <button class="px-6 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700">
-					Search
-				  </button>
+					<input type="text" placeholder="Search products..." class="px-6 py-2 rounded-lg w-full border-2">
+					<button class="px-6 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700">
+						Search
+					</button>
 				</div>
-			  
+
 				<!-- Menu Options (Below the Search Bar) -->
-				<div class="flex space-x-8 text-lg mr-26">
-				  <a href="#" class="text-teal-600 hover:text-teal-700">Home</a>
-				  <a href="#" class="text-teal-600 hover:text-teal-700">Shop</a>
-				  <a href="#" class="text-teal-600 hover:text-teal-700">About Us</a>
-				  <a href="#" class="text-teal-600 hover:text-teal-700">Contact Us</a>
-				  <a href="#" class="text-teal-600 hover:text-teal-700">Services</a>
-				  <a href="#" class="text-teal-600 hover:text-teal-700">News</a>
-				</div>
-			  </div>
-			  
+				<b>
+					<div class="flex space-x-8 text-lg mr-26">
+						<a href="#" class="text-teal-600 hover:text-teal-700">HOME</a>
+						<a href="#" class="text-teal-600 hover:text-teal-700">SHOP</a>
+						<a href="#" class="text-teal-600 hover:text-teal-700">ABOUT US</a>
+						<a href="#" class="text-teal-600 hover:text-teal-700">CONTACT US</a>
+						<a href="#" class="text-teal-600 hover:text-teal-700">SERVICES</a>
+						<a href="#" class="text-teal-600 hover:text-teal-700">NEWS</a>
+					</div>
+				</b>
+			</div>
+
 			<div class="flex items-center space-x-6">
 				<!-- Bottom Grid: Book Appointment Button -->
 				<div>
-					<div class="sm:hidden mt-4 flex justify-center" id="book-appointment">
-						<button id="book-appointment" class="px-6 py-2 text-white font-bold rounded-lg gradient-hover">
-							Book Appointment
-						</button>
-					</div>
 					<button id="book-appointment"
 						class="px-6 py-1 text-white font-bold rounded-lg bg-teal-600 gradient-hover">
-						Book Appointment
+						BOOK APPOINTMENT
 					</button>
 				</div>
 			</div>
@@ -349,16 +348,18 @@
 
 		<!-- Mobile Menu (Hidden by default) -->
 		<div id="mobile-menu" class="sm:hidden hidden fixed top-0 right-0 w-3/4 h-full bg-teal-500 text-white p-4">
-			<div class="space-y-4">
-				<a href="#" class="block text-white">Home</a>
-				<a href="#" class="block text-white">Shop</a>
-				<a href="#" class="block text-white">About Us</a>
-				<a href="#" class="block text-white">Contact Us</a>
-				<a href="#" class="block text-white">Services</a>
-				<a href="#" class="block text-white">News</a>
-				<a href="#" id="sign-in-out" class="block text-white">Sign In</a>
-				<a href="#" id="sign-in-out" class="block text-white">Sign Up</a>
-			</div>
+			<b>
+				<div class="space-y-4">
+					<a href="#" class="block text-white">HOME</a>
+					<a href="#" class="block text-white">SHOP</a>
+					<a href="#" class="block text-white">ABOUT US</a>
+					<a href="#" class="block text-white">CONTACT US</a>
+					<a href="#" class="block text-white">SERVICES</a>
+					<a href="#" class="block text-white">NEWS</a>
+					<a href="#" id="sign-in-out" class="block text-white">SIGN IN</a>
+					<a href="#" id="sign-in-out" class="block text-white">SIGN UP</a>
+			</b>
+		</div>
 		</div>
 
 		<!-- Categories Section -->
